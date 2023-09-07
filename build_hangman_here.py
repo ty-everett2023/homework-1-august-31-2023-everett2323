@@ -20,7 +20,8 @@ guessed_letters = []  # An empty list to keep track of the letters you've guesse
 def choose_random_word():
     # TODO: Pick a random word from the 'words' list.
     # INSTRUCTION: Use 'random.choice(words)' to pick a random word from the list and return it.
-    return random.choice(words)
+    rcw =  random.choice(words)
+    return rcw
 
 
 
@@ -30,7 +31,10 @@ def display_word(word, guessed_letters):
     # INSTRUCTION: Use a 'for' loop to go through each letter in the word. If the letter was guessed, show it; if not, show an underscore ('_').
 
     for x in guessed_letters:
-        print(x)
+        if x in word:
+            print(x)
+        else:
+            print('_')
 
 
 # STEP 5: Get the Player's Guess
