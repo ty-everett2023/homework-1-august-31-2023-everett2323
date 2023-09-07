@@ -1,4 +1,5 @@
-import random  # STEP 1: Import the 'random' library so we can pick random words.
+import random
+# STEP 1: Import the 'random' library so we can pick random words.
 
 
 # STEP 2: Set Up Variables
@@ -17,49 +18,59 @@ guessed_letters = []  # An empty list to keep track of the letters you've guesse
 def choose_random_word():
     # TODO: Pick a random word from the 'words' list.
     # INSTRUCTION: Use 'random.choice(words)' to pick a random word from the list and return it.
-    pass
+    return random.choice(words)
+
 
 
 # STEP 4: Show the Word
 def display_word(word, guessed_letters):
     # TODO: Show the word but use underscores for letters not guessed yet.
     # INSTRUCTION: Use a 'for' loop to go through each letter in the word. If the letter was guessed, show it; if not, show an underscore ('_').
-    pass
+
+    for x in guessed_letters:
+        print(x)
 
 
 # STEP 5: Get the Player's Guess
 def get_player_guess():
     # TODO: Ask the player to guess a letter.
     # INSTRUCTION: Use 'input("Guess a letter: ")' to get a letter from the player. Make sure to change it to lowercase using '.lower()'.
-    pass
+    return input("guess a letter: ").lower()
 
 
 # STEP 6: Check the Guess
 def is_guess_correct(word, guess):
     # TODO: See if the guessed letter is in the word.
     # INSTRUCTION: Use 'if guess in word:' to see if the letter is in the word. Return True if it is, and False if it's not.
-    pass
+    if guess in word:
+        return True
+    else:
+        return False
 
 
 # STEP 7: Add Guessed Letters
 def update_guessed_letters(guessed_letters, guess):
     # TODO: Add the new guessed letter to the list.
     # INSTRUCTION: Use 'guessed_letters.append(guess)' to add the new letter to the end of the list.
-    pass
+    guessed_letters.append(guess)
 
 
 # STEP 8: Is the Game Over?
 def game_over(attempts, word):
     # TODO: Find out if the game is over.
     # INSTRUCTION: The game ends if you run out of tries or if you guess the whole word. Return True if the game is over, and False otherwise.
-    pass
+    if attempts == 0:
+        return True
+    else:
+        return False
 
 
 # STEP 9: Show Game Info
 def display_game_status(attempts, guessed_letters, word):
     # TODO: Show the current state of the game.
     # INSTRUCTION: Use 'print()' to show the number of attempts left, the letters you've guessed, and the current word with underscores for missing letters.
-    pass
+    print(f'Attempts {attempts}')
+
 
 
 # STEP 10: Keep the Game Going
