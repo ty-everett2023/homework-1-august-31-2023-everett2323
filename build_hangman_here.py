@@ -20,7 +20,7 @@ guessed_letters = []  # An empty list to keep track of the letters you've guesse
 def choose_random_word():
     # TODO: Pick a random word from the 'words' list.
     # INSTRUCTION: Use 'random.choice(words)' to pick a random word from the list and return it.
-    rcw =  random.choice(words)
+    rcw = random.choice(words)
     return rcw
 
 
