@@ -14,6 +14,7 @@ def read_words_from_file(filename):
 words = read_words_from_file('words.txt')  # Read words from 'words.txt'
 attempts = 0  # We will set this later. It should be the length of the word being guessed plus 1.
 guessed_letters = []  # An empty list to keep track of the letters you've guessed.
+mvn
 
 
 # STEP 3: Pick a Random Word
@@ -22,6 +23,10 @@ def choose_random_word():
     # INSTRUCTION: Use 'random.choice(words)' to pick a random word from the list and return it.
     rcw = random.choice(words)
     return rcw
+"""
+Well done. Always use specific wording to name variables so you don't forget what you named it later. So instead of
+'rcw' here, you could call it something like 'word', 'random_word', 'random_chosen_word' etc.
+"""
 
 
 
