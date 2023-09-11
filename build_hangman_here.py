@@ -76,6 +76,7 @@ def display_game_status(attempts, guessed_letters, word):
     # TODO: Show the current state of the game.
     # INSTRUCTION: Use 'print()' to show the number of attempts left, the letters you've guessed, and the current word with underscores for missing letters.
     print(f'Attempts {attempts}')
+    
 
 
 
