@@ -39,12 +39,12 @@ def display_word(word, guessed_letters):
     OTHERWISE, ADD A DASH TO DISPLAYED WORD
     4. RETURN THE DISPLAYED WORD
     """
-    displayed_word = []
+    displayed_word = ''
     for letter in word:
-        if letter in guessed_letters:
-            displayed_word.append(letter)
+        if letter.lower() in guessed_letters:
+            displayed_word.__add__(letter)
         else:
-            displayed_word.append('_')
+            displayed_word.__add__('_')
 
     return displayed_word
 
