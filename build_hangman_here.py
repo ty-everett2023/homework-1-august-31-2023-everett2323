@@ -38,9 +38,15 @@ def display_word(word, guessed_letters):
     ADD THE LETTER TO DISPLAYED WORD.
     OTHERWISE, ADD A DASH TO DISPLAYED WORD
     4. RETURN THE DISPLAYED WORD
-
-
     """
+    displayed_word = []
+    for letter in word:
+        if letter in guessed_letters:
+            displayed_word.append(letter)
+        else:
+            displayed_word.append('_')
+
+    return displayed_word
 
 
 # STEP 5: Get the Player's Guess
@@ -83,7 +89,6 @@ def display_game_status(attempts, guessed_letters, word):
     # INSTRUCTION: Use 'print()' to show the number of attempts left, the letters you've guessed, and the current word with underscores for missing letters.
     print(f'Attempts {attempts}')
     
-
 
 
 # STEP 10: Keep the Game Going
