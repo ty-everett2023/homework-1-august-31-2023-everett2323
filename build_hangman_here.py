@@ -42,9 +42,9 @@ def display_word(word, guessed_letters):
     displayed_word = ''
     for letter in word:
         if letter.lower() in guessed_letters:
-            displayed_word.__add__(letter)
+            displayed_word = displayed_word + letter
         else:
-            displayed_word.__add__('_')
+            displayed_word = displayed_word + '_'
 
     return displayed_word
 
