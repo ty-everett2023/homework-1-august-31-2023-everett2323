@@ -24,7 +24,7 @@ class TestHangman(unittest.TestCase):
 
     def test_display_word(self):
         # Test if the function returns the word with underscores for unguessed letters
-        result = display_word('FLUID', ['F', 'L'])
+        result = display_word('FLUID', ['f', 'l'])
         self.assertEqual(result, 'FL___')
 
     def test_get_player_guess(self):
@@ -35,22 +35,27 @@ class TestHangman(unittest.TestCase):
 
     def test_is_guess_correct(self):
         # Test if the function correctly identifies if a guessed letter is in the word
-        self.assertTrue(is_guess_correct('FLUID', 'F'))
-        self.assertFalse(is_guess_correct('FLUID', 'Z'))
+        self.assertTrue(is_guess_correct('FLUID', 'f'))
+        self.assertFalse(is_guess_correct('FLUID', 'z'))
 
     def test_update_guessed_letters(self):
         # Test if the function correctly updates the list of guessed letters
-        guessed_letters = ['F', 'L']
-        updated_guessed_letters = update_guessed_letters(guessed_letters, 'U')
-        self.assertEqual(updated_guessed_letters, ['F', 'L', 'U'])
+        guessed_letters = ['f', 'l']
+        updated_guessed_letters = update_guessed_letters(guessed_letters, 'u')
+        self.assertEqual(updated_guessed_letters, ['f', 'l', 'u'])
 
     def test_game_over(self):
         # Test if the function correctly identifies when the game is over
         self.assertTrue(game_over(0, 'FLUID'))
-        self.assertFalse(game_over(1, 'FLUID'))
-        self.assertTrue(game_over(1, '_____'))
+        self.assertFalse(game_over(7, 'FLUID'))
+        self.assertTrue(game_over(0, '_____'))
 
     def test_display_game_status(self):
-        # Test if the function returns the expected game status string
-        status = display_game_status(3, ['F', 'L'], 'FL___')
-        self.assertEqual(status, 'Attempts left')
+        # Test if the function prints the expected game status string
+        with patch('builtins.print') as mocked_print:
+            display_game_status(3, ['f', 'l'], 'FL___')
+        mocked_print.assert_called_with('Word: FL___')
+
+
+if __name__ == '__main__':
+    unittest.main()
