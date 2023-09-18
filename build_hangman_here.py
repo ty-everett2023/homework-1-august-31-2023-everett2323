@@ -29,12 +29,18 @@ def choose_random_word():
 def display_word(word, guessed_letters):
     # TODO: Show the word but use underscores for letters not guessed yet.
     # INSTRUCTION: Use a 'for' loop to go through each letter in the word. If the letter was guessed, show it; if not, show an underscore ('_').
+    # Additionally, construct a string to accumulate the result and return this string at the end of the function
+    """
+    INSTRUCTIONS
+    1. CREATE A VARIABLE WITH AN EMPTY STRING IN IT. NO SPACES.
+    2. CREATE A FOR EACH LOOP(FOR LETTER IN WORD)
+    3. IF THE LOWERCASE LETTER IS IN GUESSED LETTERS,
+    ADD THE LETTER TO DISPLAYED WORD.
+    OTHERWISE, ADD A DASH TO DISPLAYED WORD
+    4. RETURN THE DISPLAYED WORD
 
-    for x in guessed_letters:
-        if x in word:
-            print(x)
-        else:
-            print('_')
+
+    """
 
 
 # STEP 5: Get the Player's Guess
@@ -48,10 +54,9 @@ def get_player_guess():
 def is_guess_correct(word, guess):
     # TODO: See if the guessed letter is in the word.
     # INSTRUCTION: Use 'if guess in word:' to see if the letter is in the word. Return True if it is, and False if it's not.
-    if guess in word:
-        return True
-    else:
-        return False
+    # RETURN A BOOLEAN THAT SAYS IF THE GUESS IS IN THE WORD. MAKE SURE IT'S LOWERCASE
+    return guess in word.lower()
+
 
 
 # STEP 7: Add Guessed Letters
@@ -59,6 +64,7 @@ def update_guessed_letters(guessed_letters, guess):
     # TODO: Add the new guessed letter to the list.
     # INSTRUCTION: Use 'guessed_letters.append(guess)' to add the new letter to the end of the list.
     guessed_letters.append(guess)
+    return guessed_letters
 
 
 # STEP 8: Is the Game Over?
