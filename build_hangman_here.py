@@ -82,17 +82,31 @@ def display_game_status(attempts, guessed_letters, word):
 
 # STEP 10: Keep the Game Going
 def main():
-    # This function is fully implemented. It will use all the other functions to play the game.
-    word = choose_random_word()
-    attempts = len(word) + 1
-    while not game_over(attempts, word):
-        display_game_status(attempts, guessed_letters, word)
-        guess = get_player_guess()
-        if is_guess_correct(word, guess):
-            guessed_letters = update_guessed_letters(guessed_letters, guess)
+    while True:
+        global guessed_letters, attempts
+        word = choose_random_word()
+        attempts = len(word) + 2
+        guessed_letters = []
+        while not game_over(attempts, word):
+            display_game_status(attempts, guessed_letters, word)
+            guess = get_player_guess()
+            if is_guess_correct(word, guess):
+                guessed_letters = update_guessed_letters(guessed_letters, guess)
+            else:
+                attempts -= 1
+                print(f"Incorrect guess. You have {attempts} attempts left.")
+
+        if '_' not in display_word(word, guessed_letters):
+            print("Congratulations! You've guessed the word.")
         else:
-            attempts -= 1
-    print("Game Over")
+            print(f"Game Over. The word was: {word}")
+
+        # Asking the user if they want to play again or quit the game
+        play_again = input("Press any key to play again or 'q' to quit: ").lower()
+        if play_again == 'q':
+            break
+
+
 
 # STEP 11: Start Playing
 # TODO: To start the game, you'll need to call the 'main()' function.
