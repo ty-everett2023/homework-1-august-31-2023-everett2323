@@ -77,17 +77,17 @@ def update_guessed_letters(guessed_letters, guess):
 def game_over(attempts, word):
     # TODO: Find out if the game is over.
     # INSTRUCTION: The game ends if you run out of tries or if you guess the whole word. Return True if the game is over, and False otherwise.
-    if attempts == 0:
-        return True
-    else:
-        return False
+    return attempts == 0 or "_" not in display_word(word, guessed_letters)
+
 
 
 # STEP 9: Show Game Info
 def display_game_status(attempts, guessed_letters, word):
     # TODO: Show the current state of the game.
     # INSTRUCTION: Use 'print()' to show the number of attempts left, the letters you've guessed, and the current word with underscores for missing letters.
-    print(f'Attempts {attempts}')
+    print(f"Attempts left: {attempts}")
+    print(f"Guessed letters: {', '.join(guessed_letters)}")
+    print(f"Word: {display_word(word, guessed_letters)}")
     
 
 
